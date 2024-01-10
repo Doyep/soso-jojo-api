@@ -1,0 +1,33 @@
+{
+  "dependencies": {
+    "@fastify/cors": "8.5.0",
+    "dotenv": "16.3.1",
+    "fastify": "4.25.2",
+    "fastify-plugin": "4.5.1",
+    "mongodb": "6.3.0",
+    "mongoose": "8.0.4",
+    "nodemon": "3.0.2",
+    "ts-node": "10.9.2"
+  },
+  "devDependencies": {
+    "npm-run-all": "4.1.5",
+    "typescript": "5.3.3"
+  },
+  "description": "",
+  "license": "MIT",
+  "main": "src/app.ts",
+  "name": "soso-jojo-api",
+  "scripts": {
+    "build": "npx tsc -p tsconfig.json",
+    "buildenv": "npx dotenv-vault@latest build",
+    "ci": "run-s lint test",
+    "dev": "nodemon --quiet",
+    "lint": "eslint --fix --ignore-path .gitignore --ext .js,.ts . && repo-check",
+    "postversion": "git push && git push --tags",
+    "preversion": "npm run ci",
+    "pullenv": "npx dotenv-vault@latest pull",
+    "pushenv": "npx dotenv-vault@latest push",
+    "start": "node build/app.js"
+  },
+  "version": "1.0.0"
+}
