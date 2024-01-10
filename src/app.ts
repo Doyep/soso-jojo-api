@@ -1,6 +1,8 @@
 import 'dotenv/config'
 import { fastify, FastifyListenOptions, FastifyReply, FastifyRequest } from 'fastify'
 import { fastifyCors } from '@fastify/cors'
+import { routes } from './routes'
+
 import mongoose from 'mongoose'
 
 if (!process.env.API_URI) throw new Error('API_URI is not defined')
@@ -9,6 +11,7 @@ if (!process.env.CORS_ORIGINS) throw new Error('CORS_ORIGINS is not defined')
 
 export const server = fastify({ logger: true })
   .register(fastifyCors, { origin: process.env.CORS_ORIGINS} )
+  .register(routes)
 
 // graceful shutdown
 const listeners = ['SIGINT', 'SIGTERM']
