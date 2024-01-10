@@ -9,5 +9,9 @@ class GuestService {
   async getAll(): Promise<IGuest[]> {
     return await Guest.find()
   }
+
+  async getPresent(): Promise<IGuest[]> {
+    return await Guest.find().where('status').equals('present')
+  }
 }
 export const guestService = new GuestService()

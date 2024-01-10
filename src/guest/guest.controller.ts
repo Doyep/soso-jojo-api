@@ -12,5 +12,10 @@ export const guestController = {
     await guestService.getAll()
       .then(guests => reply.type('application/json').code(200).send(guests))
       .catch(error => reply.type('application/json').code(400).send(error))
+  },
+  getPresent: async (_request: FastifyRequest, reply: FastifyReply): Promise<void> => {
+    await guestService.getPresent()
+      .then(guests => reply.type('application/json').code(200).send(guests))
+      .catch(error => reply.type('application/json').code(400).send(error))
   }
 }
