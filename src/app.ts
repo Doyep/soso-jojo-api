@@ -8,6 +8,7 @@ import mongoose from 'mongoose'
 if (!process.env.API_URI) throw new Error('API_URI is not defined')
 if (!process.env.FASTIFY_PORT) throw new Error('FASTIFY_PORT is not defined')
 if (!process.env.CORS_ORIGINS) throw new Error('CORS_ORIGINS is not defined')
+if (!process.env.GET_PWD) throw new Error('GET_PWD is not defined')
 
 export const server = fastify({ logger: true })
   .register(fastifyCors, { origin: process.env.CORS_ORIGINS} )
